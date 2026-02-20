@@ -179,3 +179,8 @@ class SupervisorAgent:
             "failed_tasks": failed,
             "success_rate": completed / max(1, len(self.tasks))
         }
+
+# Enhanced supervisor with additional features
+def get_worker_statistics(supervisor) -> Dict:
+    """Get statistics for all registered workers."""
+    return {"workers": len(supervisor.workers)}
