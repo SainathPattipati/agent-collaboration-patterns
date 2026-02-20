@@ -168,3 +168,11 @@ class SwarmIntelligence:
             max(1, len(self.agents) - 1)
         )
         return convergence <= (1 - threshold)
+
+def swarm_optimization(swarm: SwarmIntelligence, max_iterations: int = 100) -> float:
+    """Run swarm until convergence or max iterations."""
+    for _ in range(max_iterations):
+        if swarm.is_converged():
+            break
+        swarm.run_iteration()
+    return swarm.agents[0].position
